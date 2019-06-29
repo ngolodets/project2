@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
+const methodOverride = require('method-override');
 //Module that allows use/creation of sessions
 const session = require('express-session');
 //Imports passport local strategy
@@ -29,6 +30,7 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 app.use(ejsLayouts);
+app.use(methodOverride('_method'));
 app.use(helmet());
 
 // Configures express-session middleware
