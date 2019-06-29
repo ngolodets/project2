@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   park.associate = function(models) {
     // associations can be defined here
+    models.park.belongsTo(models.trip);
   };
   return park;
 };
