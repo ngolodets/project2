@@ -20,6 +20,7 @@ let config = {'X-Api-Key': 'API_KEY'};
 
 // GET /parks - displays the list of national parks
 router.get('/parks', function(req, res) {
+  res.render('parks/index', { parks: response.data })
   axios.get('https://developer.nps.gov/api/v0/parks?',
     {headers: config})
       .then(function(response) {
