@@ -1,13 +1,21 @@
+<a href="/parks/show">SELECTED PARKS</a>
 <h2>Here is the List of Naitonal Parks:</h2>
 
-<div class="description">
-  <% for (var i in parks) { %>
-    <h2> <a href="/parks/<%= parks[i].id %>"> <%= parks[i].fullName %> </h2> </a>
+<% for (var i in parks) { %>
+  <div class="description">
+    <h2> <%= parks[i].fullName %> </h2> </a>
     <h4> <span class="minititle">Park Description: </span> <%= parks[i].description %> </h4>
     <h4> <span class="minititle">State(s): </span> <%= parks[i].states %> </h4>
-    <hr />
+    <form method="POST" action="/parks">
+      <input hidden type="text" name="name" value="<%= parks[i].fullName %>">
+      <input hidden type="text" name="state" value="<%= parks[i].states %>">
+      <input hidden type="text" name="coordinates" value="<%= parks[i].latLong %>">
+      <input hidden type="text" name="code" value="<%= parks[i].parkCode %>">
+      <button class="btn btn-primary" type="submit">Add to My Parks List</button>
+    </form>
+    
+  </div>
   <% }; %>
-</div>
  
     
       
