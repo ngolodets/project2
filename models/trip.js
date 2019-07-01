@@ -8,8 +8,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   trip.associate = function(models) {
     // associations can be defined here
-    models.trip.belongsTo(models.profile);
-    models.trip.hasMany(models.park);
+    models.trip.belongsTo(models.user);
+    models.trip.belongsToMany(models.park, {through: 'tripsParks'});
+    //models.trip.hasMany(models.park);
   };
   return trip;
 };
