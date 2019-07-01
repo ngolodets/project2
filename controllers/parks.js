@@ -4,17 +4,20 @@ const db = require('../models');
 const axios = require('axios');
 
 const headers = {
-  'x-api-key': 'API_KEY',
+  'X-Api-Key': process.env.API_KEY,
   'Accept': 'application/json'
 }
 
 // GET /parks - displays the list of national parks
-router.get('/parks', isLoggedIn, function(req, res) {
-  axios.get('https://developer.nps.gov/api/v0/parks?', {headers})
+router.get('/', function(req, res) {
+  axios.get('https://developer.nps.gov/api/v1/parks?', {headers})
     .then(function(response) {
       var parks = response.data;
-      console.log("🐳🐳🐳 response from API: " + resoponse.data);
-      res.render('parks/index', {parks});
+      console.log("🐳🐳🐳 response from API: " + parks.data[1].fullName);
+      //res.json(parks)
+      res.render('parks/index', {parks: parks.data});
+  }).catch( function(err) {
+    res.json(err)
   });
 });
 // router.get('/parks', function(req, res) {

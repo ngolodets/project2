@@ -1,10 +1,17 @@
 <p>Here is the List of Naitonal Parks:</p>
 
-  <% parks.forEach(function(park) { %>
-    <h2> <a href="/parks/<%= park.id %>"> <%= park.fullName %> </h2> </a>
-      <h4> <%= park.description %> </h4>
-      <h4> <%= park.weatherInfo %> </h4>
+<% for (var i in parks) { %>
+  <h2> <a href="/parks/"> <%= parks[i].fullName %> </h2> </a>
+    <h4> <%= parks[i].description %> </h4>
+    <h4> <%= parks[i].weatherInfo %> </h4>
+    
+    
+    <hr />
+  <% }; %>
+ 
+    
+      
       
       
       <hr />
-    <% }); %>
+ 

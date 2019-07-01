@@ -67,15 +67,14 @@ app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
-app.get('/parks', isLoggedIn, function(req, res) {
-  res.render('parks/index');
-});
+
 
 app.get('/trips', isLoggedIn, function(req, res) {
   res.render('trips/index');
 });
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/parks', require('./controllers/parks'));
 
 var server = app.listen(process.env.PORT || 3000, function() {
   console.log("🐉🐉🐉 listening...");
