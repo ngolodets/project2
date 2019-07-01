@@ -20,35 +20,7 @@ router.get('/', function(req, res) {
     res.json(err)
   });
 });
-// router.get('/parks', function(req, res) {
-//   axios({
-//     method: 'get',
-//     url: 'https://developer.nps.gov/api/v0/parks?', 
-//     headers: {
-        //'X-Api-Key': 'API_KEY',
-        //'Accept': 'application/json'}
-//   }).then(function(response) {
-//     console.log("🐳🐳🐳 response from API: " + resoponse.data);
-//     res.render('parks/index', { parks: response.data });
-//   });
-// });
-// router.get('/parks', function(req, res) {
-//   axios.get('https://developer.nps.gov/api/v0/parks?'//, {
-//     //'X-Api-Key': 'API_KEY'
-//   //}
-//   ).then(function(response) {
-//     console.log("🐳🐳🐳 response from API: " + resoponse.data);
-//     res.render('parks/index', { parks: response.data });
-//   });
-// });
-// router.get('/parks', function(req, res) {
-//   axios.get('https://developer.nps.gov/api/v0/parks?',
-//     {headers: config})
-//       .then(function(response) {
-//         console.log("🐳🐳🐳 response from API: " + resoponse.data);
-//         res.render('parks/index', { parks: response.data }); 
-//   });
-// });
+
 
 //GET /parks/:id - renders show page with details of the park
 router.get('/:id', function(req, res) {
