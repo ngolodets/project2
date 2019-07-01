@@ -20,12 +20,6 @@ module.exports = {
       code: {
         type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.TEXT
-      },
-      tripId: {
-        type: Sequelize.INTEGER
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

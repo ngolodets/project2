@@ -4,13 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     state: DataTypes.STRING,
     coordinates: DataTypes.STRING,
-    code: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    tripId: DataTypes.INTEGER
+    code: DataTypes.STRING
   }, {});
   park.associate = function(models) {
     // associations can be defined here
-    models.park.belongsTo(models.trip);
   };
   return park;
 };
