@@ -4,6 +4,14 @@
 
 <h2>Here is the List of Naitonal Parks:</h2>
 
+<form method="GET" action="/parks">
+  <label for="states">Enter the State:</label>
+  <input type="text" name="states" placeholder="Search for State!"/>
+
+  <input type="submit" value="SEARCH" />
+
+</form>
+
 <% for (var i in parks) { %>
   <div class="description">
     <h2><a href="/parks/<%= parks[i].id %>"> <%= parks[i].fullName %> </a></h2> </a>
@@ -14,9 +22,7 @@
       <input hidden type="text" name="state" value="<%= parks[i].states %>">
       <input hidden type="text" name="coordinates" value="<%= parks[i].latLong %>">
       <input hidden type="text" name="code" value="<%= parks[i].parkCode %>">
-      
-      <label for="trip">Trip Destination</label>
-      <input type="text" class="form-control" id="trip" name="trip" required>
+      <input hidden type="text" name="trip" value="<%= parks[i].states %>">
         
       <button class="btn btn-primary" type="submit">Add to My Trips List</button>
     </form>

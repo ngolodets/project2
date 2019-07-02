@@ -9,17 +9,35 @@ const headers = {
   'Accept': 'application/json'
 }
 
-// GET /parks - displays the list of national parks
+// GET /parks - displays the list of all national parks
+// router.get('/', function(req, res) {
+//   axios.get('https://developer.nps.gov/api/v1/parks?', {headers})
+//     .then(function(response) {
+//       var parks = response.data;
+//       //console.log("🐳🐳🐳 response from API: " + parks.data[1].fullName);
+//       //res.json(parks)
+//       res.render('parks/index', {parks: parks.data});
+//   }).catch( function(err) {
+//     res.json(err)
+//   });
+// });
+
+// GET /parks - displays the list of national parks by state
 router.get('/', function(req, res) {
-  axios.get('https://developer.nps.gov/api/v1/parks?', {headers})
-    .then(function(response) {
-      var parks = response.data;
-      //console.log("🐳🐳🐳 response from API: " + parks.data[1].fullName);
-      //res.json(parks)
-      res.render('parks/index', {parks: parks.data});
-  }).catch( function(err) {
-    res.json(err)
-  });
+  axios.get('https://developer.nps.gov/api/v1/parks?stateCode=' + req.query.states, {headers})
+  .then(function(response) {
+          var parks = response.data;
+          //console.log("🐳🐳🐳 response from API: " + parks.data[1].fullName);
+          //res.json(parks)
+          res.render('parks/index', {parks: parks.data});
+      }).catch( function(err) {
+        res.json(err)
+      });
+});
+
+//GET /parks/new - sends a form for selecting a park state
+router.get('/new', function(req, res) {
+  res.render('parks/new');
 });
 
 // POST /parks - add park to the favorites list
