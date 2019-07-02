@@ -69,12 +69,13 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
 
 
-app.get('/trips', isLoggedIn, function(req, res) {
-  res.render('trips/index');
-});
+// app.get('/trips', isLoggedIn, function(req, res) {
+//   res.render('trips/index');
+// });
 
 app.use('/auth', require('./controllers/auth'));
 app.use('/parks', require('./controllers/parks'));
+app.use('/trips', require('./controllers/trips'));
 
 var server = app.listen(process.env.PORT || 3000, function() {
   console.log("🐉🐉🐉 listening...");

@@ -11,6 +11,10 @@
       <input hidden type="text" name="state" value="<%= parks[i].states %>">
       <input hidden type="text" name="coordinates" value="<%= parks[i].latLong %>">
       <input hidden type="text" name="code" value="<%= parks[i].parkCode %>">
+      
+      <label for="trip">Trip Destination</label>
+      <input type="text" class="form-control" id="trip" name="trip" required>
+        
       <button class="btn btn-primary" type="submit">Add to My Parks List</button>
     </form>
     

@@ -10,5 +10,15 @@ router.get('/', function(req, res) {
   });
 });
 
+//GET /trips/:id - show a specific trip and all the parks with that trip
+router.get('/:id', function(req, res) {
+  db.trip.findOne( {
+    where: {id: parseInt(req.params.id)},
+    include: [db.park]
+  }).then(function(trip) {
+      res.render('trips/show', {trip});  
+  });
+});
+
 
 module.exports = router;

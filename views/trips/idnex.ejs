@@ -1,0 +1,11 @@
+<h1>Trips:</h1>
+
+<hr>
+
+<% trips.forEach(function(trip) { %>
+  <div class="well">
+    <h2>
+      <a href="/trips/<%= trip.id %>"><%= trip.destination %></a>
+    </h2>
+  </div>
+<% }); %>
