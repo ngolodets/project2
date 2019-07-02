@@ -13,10 +13,12 @@
   <form method="POST" action="/parks/<%= park.id %>?_method=DELETE">
     <input class="delete" type="submit" value="DELETE PARK">
   </form>
-  <a href="/parks">Browse Parks</a>
 </div>
 <% }); %>
 
-<form method="POST" action="/trips/<%= trip.id %>?_method=DELETE">
-  <input class="delete" type="submit" value="DELETE TRIP">
-</form>
+<div class="options">
+  <a href="/parks">Browse More Parks</a>
+  <form method="POST" action="/trips/<%= trip.id %>?_method=DELETE">
+    <input class="delete" type="submit" value="DELETE TRIP">
+  </form>
+</div>
