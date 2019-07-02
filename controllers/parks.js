@@ -58,7 +58,7 @@ router.post('/', function(req, res) {
   });
 
 
-//GET /parks/:id - renders show page with selected parks
+//GET /parks/:id - renders show page with selected park
 router.get('/:id', function(req, res) {
   db.park.findOne({
     where: {id: parseInt(req.params.id)},

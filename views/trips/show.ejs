@@ -1,9 +1,12 @@
-<h1><%= trip.destination %></h1>
+<a class="nav" href="/"> MAIN PAGE </a> |
+<a class= "nav" href="/parks"> PARKS PAGE </a> |
+<a class= "nav" href="/profile"> PROFILE PAGE </a>
 
+<h1>Trip Destination: <%= trip.destination %></h1>
 
+<h4>Attractions to visit: </h4>
 <% trip.parks.forEach(function(park) { %>
-  <a href="/parks/<%= park.id %>"><%= park.name %></a>
-  
-
-
+<div>
+  <a href="/parks/<%= park.id %>"><%= park.name %></a> 
+</div>
 <% }); %>
