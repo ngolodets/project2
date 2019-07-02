@@ -1,0 +1,16 @@
+<h1>Create a New Trip</h1>
+
+<form action="/trips" method="POST">
+  <input hidden type="text" name="name" value="<%= parks.fullName %>">
+  <input hidden type="text" name="state" value="<%= parks.states %>">
+  <input hidden type="text" name="coordinates" value="<%= parks.latLong %>">
+  <input hidden type="text" name="code" value="<%= parks.parkCode %>">
+  
+  <label for="trip">Trip Destination</label>
+  <input type="text" class="form-control" id="trip" name="trip" required>
+    
+  <button class="btn btn-primary" type="submit">Add to My Parks List</button>
+</form>
+
+  <input type="submit" class="btn btn-primary">
+</form>

@@ -10,7 +10,36 @@ router.get('/', function(req, res) {
   });
 });
 
-//GET /trips/:id - show a specific trip and all the parks with that trip
+// POST /trips - create a new trip
+// router.post('/', (req, res) => {
+//   db.park.create({
+//     name: req.body.name,
+//     state: req.body.state,
+//     coordinates: req.body.coordinates,
+//     code: req.body.code
+//   }).then((park) => {
+//       db.trip.findOrCreate({
+//         where: {
+//           destination: req.body.trip
+//         }
+//           }).spread(function(trip, created) {
+//             park.addTrip(trip)
+//               .then(function(){
+//                 console.log("🐠🐠🐠done adding " + req.body.trip);
+//                 res.redirect('/trips');
+//         })
+//       })
+//     }).catch((error) => {
+//       res.json(error);
+//     })
+// });
+
+// // GET /trips/new - display form for creating a new trip
+// router.get('/new', (req, res) => {
+//   res.render('trips/new');
+// });
+
+//GET /trips/:id - show a specific trip and all the parks associated with that trip
 router.get('/:id', function(req, res) {
   db.trip.findOne( {
     where: {id: parseInt(req.params.id)},
@@ -20,5 +49,15 @@ router.get('/:id', function(req, res) {
   });
 });
 
+//DELETE /trips/:id - delete trip destination
+router.delete('/:id', function(req, res) {
+  db.trip.destroy({
+    where: {id: parseInt(req.params.id)},
+    include: [db.park]
+  }).then(function(response) {
+    console.log(response);
+    res.redirect('/trips');
+  })
+});
 
 module.exports = router;

@@ -1,7 +1,7 @@
-<h1>Trips:</h1>
-<a class="nav" href="/"> MAIN PAGE </a> |
-<a class= "nav" href="/parks"> PARKS PAGE </a> |
+<a class="nav" href="/"> MAIN PAGE </a>
 <a class= "nav" href="/profile"> PROFILE PAGE </a>
+<a href="/parks">NEW TRIP</a>
+<h1>My Trips:</h1>
 
 <hr>
 
@@ -10,5 +10,8 @@
     <h2>
       <a href="/trips/<%= trip.id %>"><%= trip.destination %></a>
     </h2>
+    <form method="POST" action="/trips/<%= trip.id %>?_method=DELETE">
+      <input class="delete" type="submit" value="DELETE">
+    </form>
   </div>
 <% }); %>
