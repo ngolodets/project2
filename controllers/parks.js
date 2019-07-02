@@ -74,8 +74,9 @@ router.get('/:id', function(req, res) {
     let url = 'https://developer.nps.gov/api/v1/parks?parkCode=' + data.code;
     return axios.get(url, {headers})
   }).then(function(response) {
-      var park = response.data;
+      var park = response.data.data[0];
       console.log(park);
+      //res.json(park);
       res.render('parks/show', {park});
   }).catch(function(error) {
       console.log(error);
