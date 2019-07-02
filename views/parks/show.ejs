@@ -4,6 +4,10 @@
 <a class= "nav" href="/profile"> PROFILE PAGE </a>
 
 <div class="description">
-<h2 class="name">  <%= park.data %> </h2> 
-<h2 class="name">  <%= park.states %> </h2> 
+<h2 class="name">  <%= park.name %> </h2> 
+<h3 class="name">Location: <%= park.states %> </h3> 
+<h3>Type of Attraction: <%= park.designation %></h3>
+  <p><%= park.description %></p>
+<h3>Weather Information:</h3>
+  <p><%= park.weatherInfo %></p>
 </div>
