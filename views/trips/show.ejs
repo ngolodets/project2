@@ -10,5 +10,8 @@
 <% trip.parks.forEach(function(park) { %>
 <div>
   <a href="/parks/<%= park.id %>"><%= park.name %></a> 
+  <form method="POST" action="/parks/<%= park.id %>?_method=DELETE">
+    <input class="delete" type="submit" value="DELETE">
+  </form>
 </div>
 <% }); %>

@@ -83,6 +83,17 @@ router.get('/:id', function(req, res) {
   })
 });
 
+//DELETE /parks/:id - delete park from a trip destination
+router.delete('/:id', function(req, res) {
+  db.park.destroy({
+    where: {id: parseInt(req.params.id)},
+    include: [db.trip]
+  }).then(function(response) {
+    console.log(response);
+    res.redirect('/trips');
+  })
+});
+
   
 
 
