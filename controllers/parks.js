@@ -35,12 +35,7 @@ router.get('/', function(req, res) {
       });
 });
 
-//GET /parks/new - sends a form for selecting a park state
-router.get('/new', function(req, res) {
-  res.render('parks/new');
-});
-
-// POST /parks - add park to the favorites list
+// POST /parks - add park to the trip
 // router.post('/', function(req, res) {
 //   db.park.create({
 //     name: req.body.name,
@@ -111,10 +106,5 @@ router.delete('/:id', function(req, res) {
     res.redirect('/trips');
   })
 });
-
-  
-
-
-
 
 module.exports = router;
