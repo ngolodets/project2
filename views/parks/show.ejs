@@ -19,11 +19,11 @@
     <% if (campgrounds.data !== null) { %>
       <% for (var i in campgrounds) { %>
         <div>
-          <h3>Campgrounds Name:</h3>
+          <h3>Campground Name:</h3>
           <p> <%= campgrounds[i].name %> </p>
-          <h3>Campgrounds Descripton:</h3>
+          <h3>Campground Descripton:</h3>
           <p> <%= campgrounds[i].description %> </p>
-          <h3>Campgrounds Area Weather Overview:</h3>
+          <h3>Campground Area Weather Overview:</h3>
           <p> <%= campgrounds[i].weatheroverview %> </p>
         <% }; %>
     <% } else if (campgrounds.data === null) { %>
@@ -32,4 +32,19 @@
     </div>
 </div>
 
+<div class="description">
+    <h2>Events: </h2>
+      <% if (events.data !== null) { %>
+        <% for (var i in events) { %>
+          <div>
+            <h3>Event Category:</h3>
+            <p> <%= events[i].category %> </p>
+            <h3>Event Descripton:</h3>
+            <p> <%= events[i].description %> </p>
+          <% }; %>
+      <% } else if (events.data === null) { %>
+        <p>Sorry, there are no campgrounds in this park</p>
+      <% } %>
+      </div>
+  </div>
 <p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>

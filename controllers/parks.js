@@ -51,7 +51,7 @@ router.post('/', function(req, res) {
         park.addTrip(trip)
           .then(function(){
             console.log("🐠🐠🐠done adding " + req.body.trip);
-            res.redirect('/parks');
+            res.redirect('/trips');
         })
       })
     }).catch((error) => {
@@ -72,18 +72,27 @@ router.get('/:id', function(req, res) {
       .then(function(response){
         var park = response.data.data[0];
         let url = 'https://developer.nps.gov/api/v1/campgrounds?parkCode=' + park.parkCode;
-        console.log("this is the url:", url);
+        console.log("🍄this is the url:", url);
         axios.get(url, {headers})
-          .then(function(response){
-            console.log("stuff from api:", response.data);
-            var campgrounds = response.data;
-            console.log("🍄🍄🍄 campgrounds: " + campgrounds);
-            res.render('parks/show', {park, campgrounds: campgrounds.data});
-      })
-    })
-    .catch(function(error) {
+        .then(function(response){
+          console.log("🍄🍄Campgrounds stuff from api:", response.data);
+          var campgrounds = response.data;
+          console.log("🍄🍄🍄 campgrounds: " + campgrounds);
+          //res.render('parks/show', {park, campgrounds: campgrounds.data})
+        }).then(function(response) {
+          let url = 'https://developer.nps.gov/api/v1/events?parkCode=' + park.parkCode;
+          console.log("🌈this is url: ", url);
+          axios.get(url, {headers})
+          .then(function(response) {
+            console.log("🌈🌈Events stuff from api: ", response.data);
+            var events = response.data;
+            console.log("🌈🌈🌈Events: ", events)
+            res.render('parks/show', {park, campgrounds: campgrounds.data, events: events.data});
+          })
+        })     
+      }).catch(function(error) {
         console.log(error);
-    })
+      })
   });
 });
 
