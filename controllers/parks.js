@@ -90,7 +90,7 @@ router.get('/:id', function(req, res) {
                 console.log("🌈🌈Events stuff from api: ", response.data);
                 var events = response.data;
                 console.log("🌈🌈🌈Events: ", events)
-                res.render('parks/show', {park, campgrounds: campgrounds.data, events: events});
+                res.render('parks/show', {park, campgrounds: campgrounds, events: events});
             })
           })     
         }).catch(function(error) {

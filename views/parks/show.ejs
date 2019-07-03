@@ -16,18 +16,18 @@
 
 <div class="description">
   <h2>Campgrounds Overview: </h2>
-    <% if (campgrounds.data !== null) { %>
-      <% for (var i in campgrounds) { %>
+    <% if (campgrounds.data.length) { %>
+      <% campgrounds.data.forEach((d, i) => { %>
         <div>
           <h3>Campground Name:</h3>
-          <p> <%= campgrounds[i].name %> </p>
+          <p> <%= d.name %> </p>
           <h3>Campground Descripton:</h3>
-          <p> <%= campgrounds[i].description %> </p>
+          <p> <%= d.description %> </p>
           <h3>Campground Area Weather Overview:</h3>
-          <p> <%= campgrounds[i].weatheroverview %> </p>
-        <% }; %>
-    <% } else if (campgrounds.data === null) { %>
-      <p>Sorry, there are no campgrounds in this park</p>
+          <p> <%= d.weatheroverview %> </p>
+        <% }); %>
+    <% } else if (!campgrounds.data.length) { %>
+      <p>Sorry, there are no campgrounds in this park...</p>
     <% } %>
     </div>
 </div>
