@@ -2,10 +2,8 @@
 <a class= "nav" href="/profile"> PROFILE PAGE </a> 
 <a class= "nav" href="/trips"> MY TRIPS PAGE </a> 
 
-<h2>Please Enter the State You Would Like to Visit: </h2>
+<h2>Please Select the State You Would Like to Visit: </h2>
 <form method="GET" action="/parks">
-  <label for="states">Enter the State:</label>
-  <input type="text" id="states" name="states" placeholder="Search for State!"/>
   <select name="states">
       <option value=" "> </option>
       <option value="AL">Alabama - AL</option>
@@ -65,7 +63,7 @@
 
 <% for (var i in parks) { %>
   <div class="description">
-    <h2><a href="/parks/<%= parks[i].id %>"> <%= parks[i].fullName %> </a></h2> </a>
+    <h2> <%= parks[i].fullName %> </h2>
     <h4> <span class="minititle">Park Description: </span> <%= parks[i].description %> </h4>
     <h4> <span class="minititle">State(s): </span> <%= parks[i].states %> </h4>
     <form method="POST" action="/parks">
@@ -82,4 +80,4 @@
   </div>
   <% }; %>
 
-  <p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>
+  <p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go Back</a></p>

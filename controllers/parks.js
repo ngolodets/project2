@@ -36,17 +36,6 @@ router.get('/', function(req, res) {
 });
 
 // POST /parks - add park to the trip
-// router.post('/', function(req, res) {
-//   db.park.create({
-//     name: req.body.name,
-//     state: req.body.state,
-//     coordinates: req.body.coordinates,
-//     code: req.body.code
-//   }).then(function(data) {
-//     console.log("🌸DATA: " + data);
-//     res.redirect('/parks');
-//   })
-// })
 router.post('/', function(req, res) {
   db.park.create({
     name: req.body.name,
@@ -76,12 +65,6 @@ router.get('/:id', function(req, res) {
   db.park.findOne({
     where: {id: parseInt(req.params.id)},
     include: [db.trip]
-  // }).then((park) => {
-  //   if (!park) throw Error()
-  //   res.render('parks/show', {park})
-  // }).catch((error) => {
-  //   res.status(400).render('main/404')
-  // })
   }).then(function(data) {
     console.log("🌴🌴🌴 The park code is: " + data.code);
     let url = 'https://developer.nps.gov/api/v1/parks?parkCode=' + data.code;
