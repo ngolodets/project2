@@ -34,16 +34,16 @@
 
 <div class="description">
     <h2>Events: </h2>
-      <% if (events.data !== null) { %>
-        <% for (var i in events) { %>
+      <% if (events.data.length) { %>
+        <% events.data.forEach((d, i) => { %>
           <div>
             <h3>Event Category:</h3>
-            <p> <%= events[i].category %> </p>
+            <p> <%= d.category %> </p>
             <h3>Event Descripton:</h3>
-            <p> <%= events[i].description %> </p>
-          <% }; %>
-      <% } else if (events.data === null) { %>
-        <p>Sorry, there are no campgrounds in this park</p>
+            <p> <%= d.description %> </p>
+          <% }); %>
+      <% } else if (!events.data.length) { %>
+        <p>Sorry, there are no events at this time...</p>
       <% } %>
       </div>
   </div>
