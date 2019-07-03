@@ -14,4 +14,22 @@
   <p><%= park.weatherInfo %></p>
 </div>
 
+<div class="description">
+  <h2>Campgrounds Overview: </h3>
+    <% if (campgrounds.data) { %>
+    <% for (var i in campgrounds) { %>
+      <div>
+        <h3>Campgrounds Name:</h3>
+        <p> <%= campgrounds[i].name %> </p>
+        <h3>Campgrounds Descripton:</h3>
+        <p> <%= campgrounds[i].description %> </p>
+        <h3>Campgrounds Area Weather Overview:</h3>
+        <p> <%= campgrounds[i].weatheroverview %> </p>
+        <% }; %>
+    <% } else { %>
+      <p>Sorry, there are no campgrounds in this park</p>
+    <% } %>
+    </div>
+</div>
+
 <p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>

@@ -85,15 +85,23 @@ router.get('/:id', function(req, res) {
   }).then(function(data) {
     console.log("🌴🌴🌴 The park code is: " + data.code);
     let url = 'https://developer.nps.gov/api/v1/parks?parkCode=' + data.code;
-    return axios.get(url, {headers})
-  }).then(function(response) {
-      var park = response.data.data[0];
-      console.log(park);
-      //res.json(park);
-      res.render('parks/show', {park});
-  }).catch(function(error) {
-      console.log(error);
-  })
+    axios.get(url, {headers})
+      .then(function(response){
+        var park = response.data.data[0];
+        let url = 'https://developer.nps.gov/api/v1/campgrounds?parkCode=' + park.parkCode;
+        console.log("this is the url:", url);
+        axios.get(url, {headers})
+          .then(function(response){
+            console.log("stuff from api:", response.data);
+            var campgrounds = response.data;
+            console.log("🍄🍄🍄 campgrounds: " + campgrounds);
+            res.render('parks/show', {park, campgrounds: campgrounds.data});
+      })
+    })
+    .catch(function(error) {
+        console.log(error);
+    })
+  });
 });
 
 //DELETE /parks/:id - delete park from a trip destination
