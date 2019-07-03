@@ -6,46 +6,48 @@
 <h1>Park Info:</h1>
 
 <div class="description">
-<h2 class="name">  <%= park.name %> </h2> 
-<h3 class="name">Location: <%= park.states %> </h3> 
-<h3>Type of Attraction: <%= park.designation %></h3>
+  <h2 class="name"><%= park.name %></h2> 
+  <h3 class="name">Location: <%= park.states %></h3> 
+  <h3>Type of Attraction: <%= park.designation %></h3>
   <p><%= park.description %></p>
-<h3>Weather Information:</h3>
+  <h3>Weather Information:</h3>
   <p><%= park.weatherInfo %></p>
 </div>
 
 <div class="description">
-  <h2>Campgrounds Overview: </h2>
+  <h2>Campgrounds Overview:</h2>
     <% if (campgrounds.data.length) { %>
+    <h3>Campground Area Weather Overview:</h3>
+    <p><%= campgrounds.data[0].weatheroverview %></p>
       <% campgrounds.data.forEach((d, i) => { %>
         <div>
           <h3>Campground Name:</h3>
-          <p> <%= d.name %> </p>
+          <p> <%= d.name %></p>
           <h3>Campground Descripton:</h3>
-          <p> <%= d.description %> </p>
-          <h3>Campground Area Weather Overview:</h3>
-          <p> <%= d.weatheroverview %> </p>
+          <p> <%= d.description %></p>
         <% }); %>
     <% } else if (!campgrounds.data.length) { %>
       <p>Sorry, there are no campgrounds in this park...</p>
     <% } %>
-    </div>
-</div>
+        </div>
 
-<div class="description">
-    <h2>Events: </h2>
-      <% if (events.data.length) { %>
-        <% events.data.forEach((d, i) => { %>
-          <div>
-            <h3>Event Category:</h3>
-            <p> <%= d.category %> </p>
-            <h3>Event Descripton:</h3>
-            <p> <%= d.description %> </p>
-          <% }); %>
-      <% } else if (!events.data.length) { %>
-        <p>Sorry, there are no events at this time...</p>
-      <% } %>
-      </div>
-  </div>
+  <h2>Events:</h2>
+    <% if (events.data.length) { %>
+      <% events.data.forEach((d, i) => { %>
+        <div>
+          <h3>Event:</h3>
+          <p><%= d.title %></p>
+          <img src="https://www.nps.gov<%= d.images[0].path %>" alt="<%= d.images[0].altText %>">
+          <h3>Event Descripton:</h3>
+          <p><%= d.description %></p>
+          <h3>Times:</h3>
+          <p>Starts at <%= d.times[0].timestart %></p>
+          <p>Ends at <%= d.times[0].timeend %></p>
+      <% }); %>
+    <% } else if (!events.data.length) { %>
+      <p>Sorry, there are no events at this time...</p>
+    <% } %>
+        </div>
+</div>
 
 <p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>
