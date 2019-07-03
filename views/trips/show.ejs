@@ -17,7 +17,7 @@
 <% }); %>
 
 <div class="options">
-  <a href="/parks">Browse More Parks</a>
+  <a href="/parks?states=<%= trip.destination %>">Browse More Parks in <%= trip.destination %></a>
   <form method="POST" action="/trips/<%= trip.id %>?_method=DELETE">
     <input class="delete" type="submit" value="DELETE TRIP">
   </form>

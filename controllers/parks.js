@@ -3,6 +3,10 @@ const router = express.Router();
 const db = require('../models');
 const axios = require('axios');
 const methodOverride = require('method-override');
+//const mapbox = require('@mapbox/mapbox-sdk/services/geocoding');
+//const geocodingClient = mapbox({
+//   accessToken: process.env.MAPBOX_TOKEN
+// })
 
 const headers = {
   'X-Api-Key': process.env.API_KEY,
@@ -25,13 +29,14 @@ const headers = {
 // GET /parks - displays the list of national parks by state
 router.get('/', function(req, res) {
   axios.get('https://developer.nps.gov/api/v1/parks?stateCode=' + req.query.states, {headers})
-  .then(function(response) {
-          var parks = response.data;
+    .then(function(response) {
+      var parks = response.data;
           //console.log("🐳🐳🐳 response from API: " + parks.data[1].fullName);
           //res.json(parks)
-          res.render('parks/index', {parks: parks.data});
-      }).catch( function(err) {
-        res.json(err)
+      res.render('parks/index', {parks: parks.data});
+      })
+        .catch( function(err) {
+          res.json(err)
       });
 });
 
@@ -74,26 +79,24 @@ router.get('/:id', function(req, res) {
         let url = 'https://developer.nps.gov/api/v1/campgrounds?parkCode=' + park.parkCode;
         console.log("🍄this is the url:", url);
         axios.get(url, {headers})
-        .then(function(response){
-          console.log("🍄🍄Campgrounds stuff from api:", response.data);
-          var campgrounds = response.data;
-          console.log("🍄🍄🍄 campgrounds: " + campgrounds);
-          //res.render('parks/show', {park, campgrounds: campgrounds.data})
-        }).then(function(response) {
-          let url = 'https://developer.nps.gov/api/v1/events?parkCode=' + park.parkCode;
-          console.log("🌈this is url: ", url);
-          axios.get(url, {headers})
-          .then(function(response) {
-            console.log("🌈🌈Events stuff from api: ", response.data);
-            var events = response.data;
-            console.log("🌈🌈🌈Events: ", events)
-            res.render('parks/show', {park, campgrounds: campgrounds.data, events: events.data});
-          })
-        })     
-      }).catch(function(error) {
-        console.log(error);
-      })
-  });
+          .then(function(response){
+            console.log("🍄🍄Campgrounds stuff from api:", response.data);
+            var campgrounds = response.data;
+            console.log("🍄🍄🍄 campgrounds: " + campgrounds);
+            let url = 'https://developer.nps.gov/api/v1/events?parkCode=' + park.parkCode;
+            console.log("🌈this is url: ", url);
+            axios.get(url, {headers})
+              .then(function(response) {
+                console.log("🌈🌈Events stuff from api: ", response.data);
+                var events = response.data;
+                console.log("🌈🌈🌈Events: ", events)
+                res.render('parks/show', {park, campgrounds: campgrounds.data, events: events.data});
+            })
+          })     
+        }).catch(function(error) {
+          console.log(error);
+        })
+    });
 });
 
 //DELETE /parks/:id - delete park from a trip destination

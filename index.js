@@ -16,6 +16,12 @@ const db = require('./models');
 
 const app = express();
 
+//geocoding setup
+// const mapbox = require('@mapbox/mapbox-sdk/services/geocoding');
+// const geocodingClient = mapbox({
+//   accessToken: process.env.MAPBOX_TOKEN
+// })
+
 //This line makes the session use sequelize to write session data to a postgres table
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -30,6 +36,7 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 app.use(ejsLayouts);
+//app.set('layout extractScripts', true);
 app.use(methodOverride('_method'));
 app.use(helmet());
 

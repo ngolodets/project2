@@ -39,12 +39,13 @@ router.get('/', function(req, res) {
 //   res.render('trips/new');
 // });
 
-//GET /trips/:id - show a specific trip and all the parks associated with that trip
+//GET /trips/:id - show a specific trip 
 router.get('/:id', function(req, res) {
   db.trip.findOne( {
     where: {id: parseInt(req.params.id)},
     include: [db.park]
-  }).then(function(trip) {
+  })
+    .then(function(trip) {
       res.render('trips/show', {trip});  
   });
 });
@@ -54,10 +55,11 @@ router.delete('/:id', function(req, res) {
   db.trip.destroy({
     where: {id: parseInt(req.params.id)},
     include: [db.park]
-  }).then(function(response) {
-    console.log(response);
-    res.redirect('/trips');
   })
+    .then(function(response) {
+      console.log(response);
+      res.redirect('/trips');
+  });
 });
 
 module.exports = router;
