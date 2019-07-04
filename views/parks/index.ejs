@@ -1,8 +1,10 @@
-<a class="nav" href="/"> MAIN PAGE </a> 
-<a class= "nav" href="/profile"> PROFILE PAGE </a> 
-<a class= "nav" href="/trips"> MY TRIPS PAGE </a> 
+<div class="nav">
+  <a href="/"> MAIN PAGE </a> 
+  <a href="/profile"> PROFILE PAGE </a> 
+  <a href="/trips"> MY TRIPS PAGE </a> 
+</div>
 
-<h2>Please Select the State You Would Like to Visit: </h2>
+<h2 class="titles">Please Select the State You Would Like to Visit: </h2>
 <form method="GET" action="/parks">
   <select name="states">
       <option value=" "> </option>
@@ -63,9 +65,9 @@
 
 <% for (var i in parks) { %>
   <div class="description">
-    <h2> <%= parks[i].fullName %> </h2>
-    <h4> <span class="minititle">Park Description: </span> <%= parks[i].description %> </h4>
-    <h4> <span class="minititle">State(s): </span> <%= parks[i].states %> </h4>
+    <h2 class="titles"> <%= parks[i].fullName %> </h2>
+    <h4 class="titles"> <span class="minititle">Park Description: </span> <%= parks[i].description %> </h4>
+    <h4 class="titles"> <span class="minititle">State(s): </span> <%= parks[i].states %> </h4>
     <form method="POST" action="/parks">
       <input hidden type="text" name="name" value="<%= parks[i].fullName %>">
       <input hidden type="text" name="state" value="<%= parks[i].states %>">

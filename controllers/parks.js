@@ -3,10 +3,6 @@ const router = express.Router();
 const db = require('../models');
 const axios = require('axios');
 const methodOverride = require('method-override');
-//const mapbox = require('@mapbox/mapbox-sdk/services/geocoding');
-//const geocodingClient = mapbox({
-//   accessToken: process.env.MAPBOX_TOKEN
-// })
 
 const headers = {
   'X-Api-Key': process.env.API_KEY,
@@ -25,6 +21,7 @@ const headers = {
 //     res.json(err)
 //   });
 // });
+
 
 // GET /parks - displays the list of national parks by state
 router.get('/', function(req, res) {

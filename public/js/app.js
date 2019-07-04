@@ -5,7 +5,7 @@ mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
 
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v9',
+  style: 'mapbox://styles/mapbox/streets-v11',
   center: markerCoords[0],
   zoom: 9
 })

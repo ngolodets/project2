@@ -4,7 +4,9 @@ const db = require('../models');
 
 // GET /trips - show ALL the trips that exist
 router.get('/', function(req, res) {
-  db.trip.findAll().then(function(trips) {
+  db.trip.findAll({
+    include: [db.user]
+  }).then(function(trips) {
     console.log("trips: " + trips);
     res.render('trips/index', {trips});
   });
@@ -43,7 +45,7 @@ router.get('/', function(req, res) {
 router.get('/:id', function(req, res) {
   db.trip.findOne( {
     where: {id: parseInt(req.params.id)},
-    include: [db.park]
+    include: [db.park, db.user]
   })
     .then(function(trip) {
       res.render('trips/show', {trip});  
@@ -54,7 +56,7 @@ router.get('/:id', function(req, res) {
 router.delete('/:id', function(req, res) {
   db.trip.destroy({
     where: {id: parseInt(req.params.id)},
-    include: [db.park]
+    include: [db.park, db.user]
   })
     .then(function(response) {
       console.log(response);

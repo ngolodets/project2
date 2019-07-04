@@ -1,13 +1,16 @@
-<a class="nav" href="/"> MAIN PAGE </a>
-<a class= "nav" href="/profile"> PROFILE PAGE </a>
-<a href="/parks">NEW TRIP</a>
-<h1>My Trips:</h1>
+<div class="nav">
+  <a href="/"> MAIN PAGE </a>
+  <a href="/profile"> PROFILE PAGE </a>
+  <a href="/parks">NEW TRIP</a>
+</div>
+
+<h1 class="titles">My Trips:</h1>
 
 <hr>
 
 <% trips.forEach(function(trip) { %>
   <div class="well">
-    <h2>
+    <h2 class="titles">
       <a href="/trips/<%= trip.id %>"><%= trip.destination %></a>
     </h2>
     <form method="POST" action="/trips/<%= trip.id %>?_method=DELETE">
@@ -15,4 +18,5 @@
     </form>
   </div>
 <% }); %>
-<p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>
+
+<p class="nav"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>

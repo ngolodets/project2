@@ -10,6 +10,10 @@ const passport = require('./config/passportConfig');
 const flash = require('connect-flash');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const helmet = require('helmet');
+const mapbox = require('@mapbox/mapbox-sdk/services/geocoding');
+const geocodingClient = mapbox({
+  accessToken: process.env.MAPBOX_TOKEN
+});
 
 //This is ONLY used by the session store
 const db = require('./models');
@@ -36,7 +40,7 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 app.use(ejsLayouts);
-//app.set('layout extractScripts', true);
+app.set('layout extractScripts', true);
 app.use(methodOverride('_method'));
 app.use(helmet());
 
@@ -74,6 +78,25 @@ app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
+// GET /search - take out parameters and hit mapbox geocoding
+app.get('/search', function(req, res) {
+  let location = req.query.city + ", " + req.query.state;
+  //Seattle, WA
+
+  //use geocoder to query the location with sushi appended to the query
+  //then, take response from mapbox and render show with the data
+  geocodingClient.forwardGeocode({
+    query: "sushi " + location
+  }).send().then(function(response){
+    let results = response.body.features.map(function(feature) {
+      return feature.center
+    })
+    //res.json({results})
+    console.log("Map Search results: ", results);
+    res.render('map', {results})
+  })
+
+})
 
 
 // app.get('/trips', isLoggedIn, function(req, res) {

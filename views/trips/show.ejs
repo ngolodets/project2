@@ -1,12 +1,14 @@
-<a class="nav" href="/"> MAIN PAGE </a> 
-<a class= "nav" href="/profile"> PROFILE PAGE </a>
-<a class= "nav" href="/parks"> PARKS PAGE </a> 
-<a class= "nav" href="/trips"> MY TRIPS PAGE </a> 
+<div class="nav">
+  <a href="/"> MAIN PAGE </a> 
+  <a href="/profile"> PROFILE PAGE </a>
+  <a href="/parks"> PARKS PAGE </a> 
+  <a href="/trips"> MY TRIPS PAGE </a> 
+</div>
 
 
-<h1>Trip Destination: <%= trip.destination %></h1>
+<h1 class="titles">Trip Destination: <%= trip.destination %></h1>
 
-<h4>Attractions to visit: </h4>
+<h4 class="titles">Attractions to visit: </h4>
 <% trip.parks.forEach(function(park) { %>
 <div>
   <a href="/parks/<%= park.id %>"><%= park.name %></a> 
@@ -22,4 +24,5 @@
     <input class="delete" type="submit" value="DELETE TRIP">
   </form>
 </div>
-<p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>
+
+<p class="nav"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>

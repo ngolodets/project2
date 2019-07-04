@@ -1,9 +1,11 @@
-<a class="nav" href="/"> MAIN PAGE </a> 
-<a class= "nav" href="/profile"> PROFILE PAGE </a>
-<a class= "nav" href="/parks"> PARKS PAGE </a> 
-<a class= "nav" href="/trips"> MY TRIPS PAGE </a> 
+<div class="nav">
+  <a href="/"> MAIN PAGE </a>
+  <a href="/profile"> PROFILE PAGE </a>
+  <a href="/parks"> PARKS PAGE </a>
+  <a href="/trips"> MY TRIPS PAGE </a> 
+</div>
 
-<h1>Park Info:</h1>
+<h1 class="titles">Park Info:</h1>
 
 <div class="description">
   <h2 class="name"><%= park.name %></h2> 
@@ -17,37 +19,64 @@
 <div class="description">
   <h2>Campgrounds Overview:</h2>
     <% if (campgrounds.data.length) { %>
-    <h3>Campground Area Weather Overview:</h3>
-    <p><%= campgrounds.data[0].weatheroverview %></p>
+      <h3>Campground Area Weather Overview:</h3>
+      <p><%= campgrounds.data[0].weatheroverview %></p>
       <% campgrounds.data.forEach((d, i) => { %>
         <div>
           <h3>Campground Name:</h3>
           <p> <%= d.name %></p>
           <h3>Campground Descripton:</h3>
           <p> <%= d.description %></p>
+          <% if (d.accessibility.additionalinfo.length) { %>
+            <h3>Additional Information:</h3>
+            <p> <%= d.accessibility.additionalinfo %></p>
+          <% } else { %>
+            <p></p>
+          <% } %>
         <% }); %>
     <% } else if (!campgrounds.data.length) { %>
       <p>Sorry, there are no campgrounds in this park...</p>
     <% } %>
         </div>
-
-  <h2>Events:</h2>
-    <% if (events.data.length) { %>
-      <% events.data.forEach((d, i) => { %>
-        <div>
-          <h3>Event:</h3>
-          <p><%= d.title %></p>
-          <img src="https://www.nps.gov<%= d.images[0].path %>" alt="<%= d.images[0].altText %>">
-          <h3>Event Descripton:</h3>
-          <p><%= d.description %></p>
-          <h3>Times:</h3>
-          <p>Starts at <%= d.times[0].timestart %></p>
-          <p>Ends at <%= d.times[0].timeend %></p>
-      <% }); %>
-    <% } else if (!events.data.length) { %>
-      <p>Sorry, there are no events at this time...</p>
-    <% } %>
-        </div>
 </div>
 
-<p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>
+<div class="description">
+  <h2>Events:</h2>
+      <% if (events.data.length) { %>
+        <% events.data.forEach((d, i) => { %>
+          <div>
+            <h3>Event:</h3>
+            <p><%= d.title %></p>
+            <% if (d.images.length) { %>
+              <img src="https://www.nps.gov<%= d.images[0].path %>" alt="<%= d.images[0].altText %>">
+            <% } else { %>
+              <p></p>
+            <% } %>
+            <h3>Event Descripton:</h3>
+            <p><%= d.description %></p>
+            <p><%= d.feeinfo %></p>
+            <% if (d.times.length) { %>
+              <h3>Times:</h3>
+              <p><%= d.timeinfo %></p>
+              <p>Starts at <%= d.times[0].timestart %></p>
+              <p>Ends at <%= d.times[0].timeend %></p>
+            <% } else { %>
+              <p></p>
+            <% } %>
+        <% }); %>
+      <% } else if (!events.data.length) { %>
+        <p>Sorry, there are no events at this time...</p>
+      <% } %>
+          </div>
+</div>
+
+<div>
+    <form action="/search" method="GET">
+      <input type="text" name="city" placeholder="City">
+      <input type="text" name="state" placeholder="State">
+      <input type="submit" value="GET ME THE SUSHI!">
+    </form>
+</div>
+
+<p class="nav"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>
+
