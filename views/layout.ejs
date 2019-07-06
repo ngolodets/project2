@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/style.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Cinzel|Faster+One|Hanalei|Playfair+Display+SC|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Cinzel|Faster+One|Hanalei|Playfair+Display+SC|Righteous|Vollkorn+SC&display=swap" rel="stylesheet">
     <title>National Park Trip Planner</title>
 
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
-  <body>
+  <body id="main">
     <div class="container">
       <h1 class="titles">National Park Trip Planner</h1>
       <%- JSON.stringify(currentUser) %>
@@ -19,8 +17,7 @@
       <%- body %>
     </div>
 
-    <script src="//code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <%- script %>
     

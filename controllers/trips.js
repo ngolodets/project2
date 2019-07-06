@@ -5,7 +5,7 @@ const db = require('../models');
 // GET /trips - show ALL the trips that exist
 router.get('/', function(req, res) {
   db.trip.findAll({
-    include: [db.user]
+    include: [db.user, db.park]
   }).then(function(trips) {
     console.log("trips: " + trips);
     res.render('trips/index', {trips});
