@@ -1,28 +1,36 @@
 <div class="nav">
-  <a href="/"> MAIN PAGE </a> 
-  <a href="/profile"> PROFILE PAGE </a>
-  <a href="/parks"> PARKS PAGE </a> 
-  <a href="/trips"> MY TRIPS PAGE </a> 
+  <a href="/">HOME</a> 
+  <a href="/profile"> PROFILE </a>
+  <a href="/parks"> PARKS </a> 
+  <a href="/trips"> MY TRIPS </a> 
 </div>
 
+<div class="titles">
+  <h1>Trip Destination: <%= trip.destination %></h1>
+  <h2>Attractions to Visit: </h2>
+</div>
 
-<h1 class="titles">Trip Destination: <%= trip.destination %></h1>
-
-<h4 class="titles">Attractions to visit: </h4>
+<div class="showtrips">
 <% trip.parks.forEach(function(park) { %>
-<div>
+<div class="options">
   <a href="/parks/<%= park.id %>"><%= park.name %></a> 
   <form method="POST" action="/parks/<%= park.id %>?_method=DELETE">
-    <input class="delete" type="submit" value="DELETE PARK">
+    <input class="delete" type="submit" value="DELETE PARK FROM DESTINATION">
   </form>
 </div>
 <% }); %>
 
 <div class="options">
-  <a href="/parks?states=<%= trip.destination %>">Browse More Parks in <%= trip.destination %></a>
+  <a href="/parks?states=<%= trip.destination %>">BROWSE MORE PARKS IN <%= trip.destination %></a>
+</div>
+
+<div class="options">
   <form method="POST" action="/trips/<%= trip.id %>?_method=DELETE">
     <input class="delete" type="submit" value="DELETE TRIP">
   </form>
 </div>
+</div>
 
-<p class="nav"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>
+<div>
+  <p class="goback"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;GO BACK</a></p>
+</div>

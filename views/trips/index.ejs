@@ -1,22 +1,22 @@
-<div class="nav">
-  <a href="/"> MAIN PAGE </a>
-  <a href="/profile"> PROFILE PAGE </a>
-  <a href="/parks">NEW TRIP</a>
+<div class="intro">
+  <div class="nav">
+    <a href="/"> HOME </a>
+    <a href="/profile"> PROFILE PAGE </a>
+    <a href="/parks">NEW TRIP</a>
+  </div>
 </div>
 
 <h1 class="titles">My Trips:</h1>
 
-<hr>
-
 <% trips.forEach(function(trip) { %>
+  <h2 class="titles">
+    <a href="/trips/<%= trip.id %>"><%= trip.destination %></a>
+  </h2>
   <div class="well">
-    <h2 class="titles">
-      <a href="/trips/<%= trip.id %>"><%= trip.destination %></a>
-    </h2>
     <form method="POST" action="/trips/<%= trip.id %>?_method=DELETE">
       <input class="delete" type="submit" value="DELETE DESTINATION">
     </form>
   </div>
 <% }); %>
 
-<p class="nav"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a></p>
+<p class="goback"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;GO BACK</a></p>

@@ -1,11 +1,11 @@
 <div class="nav">
-  <a href="/"> MAIN PAGE </a> 
-  <a href="/profile"> PROFILE PAGE </a> 
-  <a href="/trips"> MY TRIPS PAGE </a> 
+  <a href="/"> HOME </a> 
+  <a href="/profile"> PROFILE </a> 
+  <a href="/trips"> MY TRIPS </a> 
 </div>
 
 <h2 class="titles">Please Select the State You Would Like to Visit: </h2>
-<form method="GET" action="/parks">
+<form method="GET" action="/parks" class="form">
   <select name="states">
       <option value=" "> </option>
       <option value="AL">Alabama - AL</option>
@@ -59,7 +59,7 @@
       <option value="WI">Wisconsin - WI</option>
       <option value="WY">Wyoming - WY</option>
     </select>
-  <input type="submit" value="SEARCH" />
+  <input class="search" type="submit" value="SEARCH" />
 </form>
 
 
@@ -81,4 +81,4 @@
   </div>
   <% }; %>
 
-  <p><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go Back</a></p>
+  <p><a class="goback" href="javascript:history.go(-1)" title="Return to previous page">&laquo;GO BACK</a></p>
