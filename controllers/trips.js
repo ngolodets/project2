@@ -23,7 +23,8 @@ router.get('/', function(req, res) {
 //       db.trip.findOrCreate({
 //         where: {
 //           destination: req.body.trip
-//         }
+//         },
+           //include: [db.park, db.user] 
 //           }).spread(function(trip, created) {
 //             park.addTrip(trip)
 //               .then(function(){

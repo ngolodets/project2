@@ -59,7 +59,7 @@
       <option value="WI">Wisconsin - WI</option>
       <option value="WY">Wyoming - WY</option>
     </select>
-  <input class="search" type="submit" value="SEARCH" />
+  <input class="add" type="submit" value="SEARCH" />
 </form>
 
 
@@ -68,6 +68,7 @@
     <h2 class="titles"> <%= parks[i].fullName %> </h2>
     <h4 class="titles"> <span class="minititle">Park Description: </span> <%= parks[i].description %> </h4>
     <h4 class="titles"> <span class="minititle">State(s): </span> <%= parks[i].states %> </h4>
+    
     <form method="POST" action="/parks">
       <input hidden type="text" name="name" value="<%= parks[i].fullName %>">
       <input hidden type="text" name="state" value="<%= parks[i].states %>">
@@ -75,9 +76,12 @@
       <input hidden type="text" name="code" value="<%= parks[i].parkCode %>">
       <input hidden type="text" name="trip" value="<%= parks[i].states %>">
         
-      <button class="btn btn-primary" type="submit">Add to My Trips List</button>
+      <button class="add" type="submit">Add to My Trips List</button>
     </form>
-    <a href="/trips">MY TRIPS</a>
+    <div class="nav">
+      <a href="/trips">MY TRIPS</a>
+    </div>
+  
   </div>
   <% }; %>
 

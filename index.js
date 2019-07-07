@@ -94,9 +94,8 @@ app.get('/search', function(req, res) {
     //res.json({results})
     console.log("Map Search results: ", results);
     res.render('map', {results})
-  })
-
-})
+  });
+});
 
 
 // app.get('/trips', isLoggedIn, function(req, res) {
