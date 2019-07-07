@@ -7,6 +7,8 @@
 
 <h1 class="titles">Park Info:</h1>
 
+<p class="goback"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;GO BACK</a></p>
+
 <div class="description">
   <div class="details">
     <h2 class="name"><%= park.name %></h2> 
@@ -22,7 +24,7 @@
         <h3>Campground Area Weather Overview:</h3>
         <p><%= campgrounds.data[0].weatheroverview %></p>
         <% campgrounds.data.forEach((d, i) => { %>
-          <div>
+          <div class="moredetails">
             <h3>Campground Name:</h3>
             <p> <%= d.name %></p>
             <h3>Campground Descripton:</h3>
@@ -33,17 +35,18 @@
             <% } else { %>
               <p></p>
             <% } %>
+          </div>
           <% }); %>
       <% } else if (!campgrounds.data.length) { %>
         <p>Sorry, there are no campgrounds in this park...</p>
       <% } %>
-          </div>
+        
   </div>
   <div class="details">
     <h3>Events:</h3>
         <% if (events.data.length) { %>
           <% events.data.forEach((d, i) => { %>
-            <div>
+            <div class="moredetails">
               <h3>Event:</h3>
               <p><%= d.title %></p>
               <% if (d.images.length) { %>
@@ -62,12 +65,14 @@
               <% } else { %>
                 <p></p>
               <% } %>
+          </div>
           <% }); %>
         <% } else if (!events.data.length) { %>
           <p>Sorry, there are no events at this time...</p>
         <% } %>
-            </div>
+            
   </div>
+  
 </div>
 
 <div>
