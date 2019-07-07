@@ -7,9 +7,8 @@
 
 <h1 class="titles">Park Info:</h1>
 
-<div class="flex-container">
-
-  <div class="description">
+<div class="description">
+  <div class="details">
     <h2 class="name"><%= park.name %></h2> 
     <h3 class="name">Location: <%= park.states %></h3> 
     <h3>Type of Attraction: <%= park.designation %></h3>
@@ -17,9 +16,8 @@
     <h3>Weather Information:</h3>
     <p><%= park.weatherInfo %></p>
   </div>
-
-  <div class="description">
-    <h2>Campgrounds Overview:</h2>
+  <div class="details">
+    <h3>Campgrounds Overview:</h3>
       <% if (campgrounds.data.length) { %>
         <h3>Campground Area Weather Overview:</h3>
         <p><%= campgrounds.data[0].weatheroverview %></p>
@@ -41,9 +39,8 @@
       <% } %>
           </div>
   </div>
-
-  <div class="description">
-    <h2>Events:</h2>
+  <div class="details">
+    <h3>Events:</h3>
         <% if (events.data.length) { %>
           <% events.data.forEach((d, i) => { %>
             <div>

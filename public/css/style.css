@@ -40,9 +40,25 @@ h1, h2 {
   border-radius: 5px;
   border: 1px double rgb(77, 42, 42);
 }
+/*
 .flex-container {
   display: flex;
   justify-content: space-around;
+  align-items: stretch;
+}
+*/
+
+.description {
+  background-color: rgba(255,255,255,0.7);
+  max-width: 70vw;
+  margin: 0 auto;
+  padding: 15px;
+  display: block;
+}
+.details {
+  border: 2px solid rgb(59,75,32);
+  
+  margin: 5px;
 }
 .options {
   margin: 0 auto;
