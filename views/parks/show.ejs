@@ -39,6 +39,7 @@
           <% }); %>
       <% } else if (!campgrounds.data.length) { %>
         <p>Sorry, there are no campgrounds in this park...</p>
+        <img class="infosign" src="https://images.campgroundsigns.com/img/lg/K/No-Camping-Tent-Sign-K-5340.gif" alt="">
       <% } %>
         
   </div>
@@ -69,16 +70,9 @@
           <% }); %>
         <% } else if (!events.data.length) { %>
           <p>Sorry, there are no events at this time...</p>
+          <img class="infosign" src="https://notsofancynancy.files.wordpress.com/2012/05/dscn1192.jpg" alt="">
         <% } %>      
   </div>
-</div>
-
-<div>
-    <form action="/search" method="GET">
-      <input type="text" name="city" placeholder="City">
-      <input type="text" name="state" placeholder="State">
-      <input type="submit" value="GET ME THE SUSHI!">
-    </form>
 </div>
 
 <p class="goback"><a href="javascript:history.go(-1)" title="Return to previous page">&laquo;GO BACK</a></p>
