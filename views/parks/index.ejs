@@ -79,17 +79,6 @@
 
         <button class="add" type="submit">Add to My Trips List</button>
       </form>
-
-      <form action="/trips">
-        <input hidden type="text" name="name" value="<%= parks[i].fullName %>">
-        <input hidden type="text" name="state" value="<%= parks[i].states %>">
-        <input hidden type="text" name="coordinates" value="<%= parks[i].latLong %>">
-        <input hidden type="text" name="code" value="<%= parks[i].parkCode %>">
-        <input hidden type="text" name="trip" value="<%= parks[i].states %>">
-        <input hidden type="text" name="userId" value="<%= currentUser.id %>">
-  
-        <button class="add" type="submit">New Trip</button>
-      </form>
   
       <div class="nav">
         <a href="/trips">MY TRIPS</a>
