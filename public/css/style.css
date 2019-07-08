@@ -135,12 +135,6 @@ a:hover {
   background-color: rgb(254, 210, 101);
   color: rgb(59,75,32);
 }
-/*
-input:hover {
-  background-color: rgb(77, 42, 42);
-  color: rgb(220, 145, 145);
-}
-*/
 .options:hover {
   transform: scale(1.2);
 }

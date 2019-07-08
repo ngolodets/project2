@@ -47,7 +47,9 @@ router.post('/', function(req, res) {
     }).then((park) => {
       db.trip.findOrCreate({
         where: {
-          destination: req.body.trip
+          destination: req.body.trip,
+          userId: req.user.id
+          
         }
       }).spread(function(trip, created) {
         park.addTrip(trip)
