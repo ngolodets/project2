@@ -113,7 +113,7 @@ select {
   font-size: 20px;
   text-shadow: 2px 2px 2px rgb(69, 87, 37);
   border: 1px solid rgb(87,118,34);
-  margin: 1px;
+  margin-top: 12px;
 }
 .pic {
   width: 400px;
@@ -192,6 +192,13 @@ select {
   font-family: 'Playfair Display SC', serif; 
   margin: 10px;
   display: inline-block;
+}
+.updatename {
+  font-family: 'Playfair Display SC', serif;
+  padding: 2px;
+  border: 1px solid rgb(59,75,32);
+  text-align: center;
+  border-radius: 5px;
 }
 a:hover {
   background-color: rgb(254, 210, 101);
