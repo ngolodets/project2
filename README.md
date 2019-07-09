@@ -78,10 +78,10 @@ For the POST route in parks.js, I have created a hidden form that allows me to s
 The app allows the user to search through all the parks sorted by state, add the park to the trip(s), delete the park from a trip, and delete the trip.
 
 ## Remaining Issues:
-I was not able to display a map showing the park location on the parks show page. 
+I was not able to display a map showing the park location on the parks show page.  However, the app is fully functional as it is. 
 
 ## Features to Add/Wishlist:
-I would like to add the map to the park show (description) page.  Moreover, I need to incorporate a mobile-friendly version.
+I would like to add the map to the park show (description) page.  Moreover, I need to incorporate a mobile-friendly version.  I would also like to add a section where the user can leave a comment or notes about particular parks, so it would be easier to keep track of attractions.
 
 
 

@@ -15,9 +15,9 @@ router.get('/', function(req, res) {
     .then(function(response) {
       var parks = response.data;
       res.render('parks/index', {parks: parks.data});
-      })
-        .catch( function(err) {
-          res.json(err)
+    })
+      .catch( function(err) {
+        res.json(err)
       });
 });
 
