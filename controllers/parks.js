@@ -82,4 +82,17 @@ router.delete('/:id', function(req, res) {
   });
 });
 
+// PUT /parks/:id - updates park name
+router.put('/:id', function(req, res) {
+  db.park.update({
+    name: req.body.name
+  }, {
+    where: {id: parseInt(req.params.id)},
+    include: [db.trip]
+  }).then(function(response) {
+    //res.render("new park name");
+    res.redirect('/trips');
+  });
+});
+
 module.exports = router;

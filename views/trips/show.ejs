@@ -18,6 +18,16 @@
     <input class="delete" type="submit" value="DELETE PARK FROM DESTINATION">
   </form>
 </div>
+<div class="options">
+    <form method="POST" action="/parks/<%= park.id %>?_method=PUT" >
+      <div class="updatepark">
+        <input type="text" name="name" value="<%= park.name %>" />
+      </div>
+      <div class="add">
+        <input type="submit" value="UPDATE PARK NAME" />
+      </div>
+    </form>
+</div>
 <% }); %>
 
 <div class="options">
