@@ -38,6 +38,28 @@ The trips show page displays the list of all the parks the user selected from a 
 
 The parks show page displays the information about the park (obtained from the external API) - weather, campgrounds, and events information.
 
+### Main Index Screenshot:
+![Main_Index_Screenshot](public/img/main_ind.png)
+
+### Login Page Screenshot:
+![Login_Screenshot](public/img/login.png)
+
+### Profile Screenshot:
+![Profile_Screenshot](public/img/profile.png)
+
+### Parks Index Screenshot:
+![Parks_Index](public/img/parks_ind.png)
+
+### Trips Index Screenshot:
+![Trips_Index](public/img/trips_ind.png)
+
+### Trips Show Page Screenshot:
+![Trips_Show](public/img/trips_show.png)
+
+### Parks Show Page Screenshot:
+![Parks_Show](public/img/parks_show.png)
+
+
 
 #### Scaffold w/tests (see `master` branch)
 
