@@ -97,11 +97,6 @@ app.get('/search', function(req, res) {
   });
 });
 
-
-// app.get('/trips', isLoggedIn, function(req, res) {
-//   res.render('trips/index');
-// });
-
 app.use('/auth', require('./controllers/auth'));
 app.use('/parks', require('./controllers/parks'));
 app.use('/trips', require('./controllers/trips'));
