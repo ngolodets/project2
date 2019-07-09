@@ -59,6 +59,24 @@ The parks show page displays the information about the park (obtained from the e
 ### Parks Show Page Screenshot:
 ![Parks_Show](public/img/parks_show.png)
 
+## Development Journal:
+I have started this project with model definitions and associations between them (please see Planning Details/Models).  The user model has one to many association with the trip model.  In turn, the trip and park model have many to many association between them.  Once the models and the associations were developed, the routes were established.
+
+For the trips, I have created the following routes:
+GET /trips - shows ALL the trips that exist;
+GET /trips/:id - shows a specific trip;
+DELETE /trips/:id - deletes trip destination;
+
+For the parks, I have created the following routes:
+GET /parks - displays the list of national parks by state;
+POST /parks - adds park to the trip;
+GET /parks/:id - renders show page with selected park;
+DELETE /parks/:id - deletes park from a trip destination;
+
+For the POST route in parks.js, I have created a hidden form that allows me to save the information I need to make the API calls and also assign the trip to a particular user.
+
+The app allows the user to search through all the parks sorted by state, add the park to the trip(s), delete the park from a trip, and delete the trip.
+
 
 
 #### Scaffold w/tests (see `master` branch)
