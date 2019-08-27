@@ -13,7 +13,7 @@
 <div class="description">
   <% trip.parks.forEach(function(park) { %>
   <div class="options">
-    <a href="/parks/<%= park.id %>"><%= park.name %></a> 
+    <a class='parkid' href="/parks/<%= park.id %>"><%= park.name %></a> 
       <div class="add">
         <form method="POST" action="/parks/<%= park.id %>?_method=PUT" >
         <input class="updatename" type="text" name="name" value="<%= park.name %>" />
@@ -21,7 +21,7 @@
       </div>
     </form>
     <form method="POST" action="/parks/<%= park.id %>?_method=DELETE">
-      <input class="delete" type="submit" value="DELETE PARK FROM DESTINATION">
+      <input class="delete" id="deletepark" type="submit" value="DELETE PARK FROM DESTINATION">
     </form>
   
   </div>
@@ -33,7 +33,7 @@
 
   <div class="options">
     <form method="POST" action="/trips/<%= trip.id %>?_method=DELETE">
-      <input class="delete" type="submit" value="DELETE TRIP">
+      <input class="delete" id="deletetrip" type="submit" value="DELETE TRIP">
     </form>
   </div>
 </div>

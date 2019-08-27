@@ -3,10 +3,13 @@ body {
   padding: 0;
   background-color: rgb(152, 181, 152);
   background-image: url("https://img.heypik.com/background/20180830/heypik-painted-flowers-forest-background-illustration_28764996.jpg?x-oss-process=image/quality,q_70/watermark,image_c2h1aXlpbl9uZXcucG5n,g_center");
+  background-repeat: no-repeat; 
+  background-size: cover;
   background-position: center;
   background-size: cover;
   height: 100vh;
   text-align: center;
+  box-sizing: border-box;
 }
 a {
   text-decoration: none;
@@ -18,6 +21,7 @@ a {
   border-radius: 5px;
   width: 100px;
   height: 50px; 
+  box-sizing: border-box;
 }
 title {
   text-shadow: 5px 5px 5px rgb(165, 196, 165);
@@ -37,9 +41,12 @@ select {
 }
 .intro, #maintitle {
   background-color: rgba(255,255,255,0.7);
-  border: 0px solid rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.7);
   height: 65px;
-  max-width: 68vw;
+  max-width: 70vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  /*padding: 15px;*/
 }
 .delete {
   font-family: 'Playfair Display SC', serif;
@@ -58,7 +65,8 @@ select {
   background-color: rgba(85, 107, 47, 0.7);
   max-width: 70vw;
   margin: 0 auto;
-  padding: 15px;
+  box-sizing: border-box;
+  /*padding: 15px;*/
   display: block;
 }
 .details {
@@ -82,7 +90,8 @@ select {
   background-color: rgba(85, 107, 47, 0.7);
   max-width: 70vw;
   margin: 0 auto;
-  padding: 15px;
+  box-sizing: border-box;
+  /*padding: 15px;*/
 }
 .titles {
   font-family: 'Cinzel', serif;
@@ -90,7 +99,8 @@ select {
   margin: 0 auto;
   max-width: 70vw;
   font-weight: bolder;
-  padding: 15px;
+  box-sizing: border-box;
+  /*padding: 15px;*/
 }
 .goback {
   font-size: 25px;
@@ -101,9 +111,10 @@ select {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 20px;
-  padding: 15px;
+  /*padding: 15px;*/
   background-color: rgba(85, 107, 47, 0.7);
   max-width: 70vw;
+  box-sizing: border-box;
   margin: 0 auto;
   text-shadow: 2px 2px 2px rgb(87, 118, 34);
 }
@@ -130,16 +141,19 @@ select {
   height: 200px;
 }
 .homeimages {
-  width: 72vw;
   background-color: rgba(255,255,255,0.7);
+  max-width: 70vw;
+  box-sizing: border-box;
   margin: 0 auto;
-  /*padding: 15px;
-  height: 300px;*/
+  padding: 15px;
+  /*height: 300px;*/
 }
 .empty {
-  width: 72vw;
-  background-color: rgba(255,255,255,0.7);
+  max-width: 70vw;
+  box-sizing: border-box;
   margin: 0 auto;
+  padding: 15px;
+  background-color: rgba(255,255,255,0.7);
   height: 70px;
 }
 .home {
@@ -148,11 +162,10 @@ select {
   border: none;
 }
 .signup {
-  width: 72vw;
-  /*
-  height: 300px;
-  */
+  max-width: 70vw;
+  box-sizing: border-box;
   margin: 0 auto;
+  padding: 15px;
   background-color: rgba(85, 107, 47, 0.7);
   font-family: 'Cinzel', serif;
   text-shadow: 2px 2px 2px rgb(254, 210, 101);
@@ -167,15 +180,20 @@ select {
   border-radius: 20px;
 }
 .greeting {
-  width: 71vw;
+  max-width: 70vw;
+  box-sizing: border-box;
   margin: 0 auto;
+  padding: 15px;
   background-color: rgba(244, 210, 126, 0.7);
   font-family: 'Cinzel', serif;
   padding: 5px;
 }
 .profilepage {
-  width: 72vw;
+  width: 70vw;
+  border: 5px solid rgb(255,255,255);
+  box-sizing: border-box;
   margin: 0 auto;
+  padding: 15px;
 }
 #authEmail, #authName, #authPassword {
   width: 150px;
@@ -215,23 +233,55 @@ a:hover {
   background-color: rgb(77, 42, 42);
   color: rgba(220, 145, 145, 0.7);
 }
-@media only screen and (max-width: 899px) {
-  .pic, .image, .header, img {
+@media only screen and (max-width: 600px) {
+  .pic, .image, .header, img, .infosign {
     width: 90px;
     height: 60px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid white;
+    box-sizing: border-box;
   }
-  #maintitle {
-    max-width: 68vw;
+
+  .titles, .greeting, h1, h2, .options {
+    font-size: 14px;
+  }
+
+  a {
+    border-radius: 2px;
+    width: 50px;
+    height: 20px; 
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+
+  .add, .goback, .updatename, .delete {
+    font-size: 12px;
+  }
+
+  #deletepark, .parkid, #deletetrip, .updatename {
+    width: 110px;
+    font-size: 5px;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 15px;
   }
 }
+
 @media only screen and (min-width: 900px) {
-  .pic, .image, .header, img {
+  .pic, .image, .header, img, .infosign {
     width: 200px;
     height: 100px;
   }
-  #maintitle {
-    max-width: 69vw;
-  }
+
+  /* a {
+    border-radius: 2px;
+    width: 70px;
+    height: 20px; 
+    box-sizing: border-box;
+  } */
 }
 
 
