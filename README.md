@@ -1,6 +1,8 @@
 # Project 2
 ## National Park Trip Planner
 
+Try the app at [https://afternoon-wave-90536.herokuapp.com/](https://afternoon-wave-90536.herokuapp.com/)
+
 For this project, express authentication template using Passport + flash messages + custom middleware was used as a starting point.
 
 ## Project Description:
@@ -10,7 +12,7 @@ The purpose of this app is to help user plan a trip to the national parks locate
 The user may add any (and as many as they desire) parks from the list pulled from the National Parks API.  Additionally, the user may have many trips (note: the trips are categorized by state).  Moreover, the user can view and edit all the potential trips -- they may delete the trip destination and/or delete the parks from a particular trip.
 
 ## Used in the Project:
-HTML, CSS, JavaScript, Postgress, external API, Heroku.
+JavaScript, HTMl/CSS, Postgres, Express.js, EJS, [external API](https://www.nps.gov/subjects/developer/api-documentation.htm), and Heroku.
 
 ## Planning Details
 ### Models:
